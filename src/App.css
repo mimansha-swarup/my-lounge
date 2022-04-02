@@ -1,10 +1,33 @@
+*{
+  --green-gradient:  linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+  
+}
 .App {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.content {
+  overflow: auto;
+  grid-column: 3/13;
+  grid-row: 2/13;
+}
+.underline-none{
+  text-decoration: none;
+}
+
+
+.card{
+  width: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
