@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
   const Login = async (email, password) => {
     try {
       const response = await axios.post(loginPostApi, { email, password });
-      console.log(response)
+
       if (response.status === 200) {
         const { encodedToken,foundUser } = response.data;
 
@@ -64,7 +64,7 @@ export const AuthProvider = ({ children }) => {
         email,
         password,
       });
-      console.log(response)
+  
 
       if (response.status === 201) {
         const { encodedToken,createdUser } = response.data;
