@@ -13,6 +13,10 @@ code {
     monospace;
 }
 
+.width-100{
+  width: 100%;
+}
+
 /* TODO: move below code to component LIb */
 .ml-0 {
   margin-left: 0;

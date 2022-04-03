@@ -1,5 +1,8 @@
 *{
   --green-gradient:  linear-gradient(315deg, #7ee8fa 0%, #80ff72 74%);
+  --color-ash-gray: #C1C5B1;
+  --color-jet-black: #010101;
+  --color-cultured-white: #F5F5F6;
   
 }
 .App {
@@ -30,11 +33,6 @@
   width: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #22201c;
@@ -46,29 +44,3 @@
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
-}

@@ -20,7 +20,7 @@ const SideBar = () => {
   return (
     <aside className="sidebar">
       <div className="logo-cont">
-        <img src={BrandImage} alt="brandImage"  />
+        <img src={BrandImage} className="img-responsive" alt="brandImage"  />
       </div>
       <hr className="line-horz" />
       <NavLink  to="/"  style={({isActive}) =>isActive? activeStyle:null }  className="sidebar-title ">
