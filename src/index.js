@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter } from "react-router-dom";
-import ProvideWrapper from "./Helper/Api/ProviderWrapper";
+import ProvideWrapper from "./Helper/ProviderWrapper";
 
 // Call make Server
 makeServer();

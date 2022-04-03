@@ -1,4 +1,4 @@
-import { ToastProvider } from "../../Context";
+import { ToastProvider } from "../Context";
 
 const ProvideWrapper = ({ children }) => {
   return <ToastProvider>{children}</ToastProvider>;
