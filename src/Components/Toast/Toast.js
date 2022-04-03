@@ -1,18 +1,10 @@
 import { useEffect, useState } from "react";
 import { MdCancel } from "react-icons/md";
+import { toastType } from "../../Helper/Api/toast/toasttype";
 const Toast = ({ type, message }) => {
 
   const [dispay, setDisplay] = useState("flex");
-  const toastType = {
-    success: {
-      color: "#39D98A",
-      borderLeft: " 8px solid #39D98A",
-    },
-    error: {
-      color: "#FF5C5C",
-      borderLeft: " 8px solid #FF5C5C",
-    },
-  };
+ 
   useEffect(()=>{
     setTimeout(()=>deleteToast(),5000)
   })
