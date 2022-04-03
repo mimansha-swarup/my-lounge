@@ -1,9 +1,13 @@
+import { Navigate } from "react-router-dom";
 import { videos } from "../../backend/db/videos";
 import { VideoCard } from "../../Components";
+import { useAuth } from "../../Context";
 
 import "./Video.css";
 
 const VideoPage = () => {
+  const {authState} = useAuth()
+  if(!authState?.isAuth) return <Navigate to="/login" replace />
   return (
     <main className=" content">
       <div className="video-cont">

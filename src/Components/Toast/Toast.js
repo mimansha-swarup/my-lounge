@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MdCancel } from "react-icons/md";
-import { toastType } from "../../Helper/Api/toast/toasttype";
+import { toastType } from "../../Helper/toast/toastType";
 const Toast = ({ type, message }) => {
 
   const [dispay, setDisplay] = useState("flex");

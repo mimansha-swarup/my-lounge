@@ -10,6 +10,7 @@
 }
 .sidebar .logo-cont {
   margin-top: 1.25rem;
+  padding: 0 .5rem;
 }
 .sidebar-title {
   color: var(--color-black-00);

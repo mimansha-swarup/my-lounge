@@ -1,5 +1,6 @@
 import "./App.css";
-import { Navbar, SideBar } from "./Components";
+import { Navbar, SideBar, ToastContainer } from "./Components";
+import { ToastProvider } from "./Context";
 import logo from "./logo.png";
 import AllRoutes from "./Routes/AllRoutes";
 
@@ -8,12 +9,10 @@ import AllRoutes from "./Routes/AllRoutes";
 function App() {
   return (
     <div className="App">
-     
-      
-        <Navbar />
-        <SideBar/>
-        <AllRoutes/>
-     
+      <Navbar />
+      <SideBar />
+      <AllRoutes />
+      <ToastContainer />
     </div>
   );
 }

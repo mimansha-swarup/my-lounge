@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { CategoryCard, Hero, VideoCard } from "../../Components";
 import axios from "axios";
 import { categoriesApi } from "../../Helper/Api/Api";
-import { useToast } from "../../Context";
+import {  useToast } from "../../Context";
 const HomePage = () => {
   const { setToastData } = useToast();
   const [categoriesData, setCategoriesData] = useState([]);
