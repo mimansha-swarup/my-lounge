@@ -10,13 +10,13 @@ const HomePage = () => {
 
   useEffect(() => {
     (async () => {
+      try {
       setStatus({ isLoading: true, error: "" });
       const response = await axios.get(categoriesApi);
       if (response.status === 200) {
         setCategoriesData(response.data.categories);
         setStatus({ isLoading: false });
       }
-      try {
       } catch (error) {
         setStatus({ isLoading: false });
         setToastData((prevToastData) => [
