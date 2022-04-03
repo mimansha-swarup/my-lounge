@@ -7,7 +7,7 @@ const VideoPage = () => {
   return (
     <main className=" content">
       <div className="video-cont">
-        <h3 className="headline3">Results</h3>
+        <h3 className="headline3">Results <span className="subtitle1 grey-text">(46 results)</span> </h3>
         <div className="grid-x4">
           {videos.map((video) => (
             <VideoCard key={video._id} videoData={video} />
