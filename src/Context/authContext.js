@@ -8,6 +8,7 @@ import { useToast } from "./toastContext";
 
 const initialState = {
   token: JSON.parse(localStorage.getItem("jwtAuth"))?.token || "",
+  name: JSON.parse(localStorage.getItem("jwtAuth"))?.name || "",
   isAuth: JSON.parse(localStorage.getItem("jwtAuth"))?.isAuth || false,
 };
 

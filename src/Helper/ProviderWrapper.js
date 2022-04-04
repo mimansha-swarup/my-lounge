@@ -1,9 +1,18 @@
-import { AuthProvider, ToastProvider } from "../Context";
+import {
+  AuthProvider,
+  ActivitiesProvider,
+  ToastProvider,
+  VideoProvider,
+} from "../Context";
 
 const ProvideWrapper = ({ children }) => {
   return (
     <ToastProvider>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        <ActivitiesProvider>
+          <VideoProvider>{children}</VideoProvider>
+        </ActivitiesProvider>
+      </AuthProvider>
     </ToastProvider>
   );
 };
