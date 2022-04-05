@@ -30,24 +30,27 @@ const SingleVideoPage = () => {
     videoList.filter((video) => video._id === videoId)[0];
 
   const getRandomInt = (num) => Math.floor(Math.random() * num);
+  
   useEffect(() => {
     setCurrVideo(findVideoData());
     setStatusActivity((prevStatusActivity) => ({
       ...prevStatusActivity,
       likes: isPresent(activitiesState.likes, findVideoData()),
       watchlater: isPresent(activitiesState.watchlater, findVideoData()),
-    
     }));
 
     setRamdomArray(randomArray.map((num) => getRandomInt(videoList.length)));
 
-    postUserActivityData(
-      authState.token,
-      findVideoData(),
-      historyApi,
-      "history",
-      activitiesDispatch
-    )
+    //  History
+    if (!isPresent(activitiesState.history, findVideoData())) {
+      postUserActivityData(
+        authState.token,
+        findVideoData(),
+        historyApi,
+        "history",
+        activitiesDispatch
+      );
+    }
   }, [videoId]);
 
   const handleActions = (
@@ -82,7 +85,6 @@ const SingleVideoPage = () => {
 
   return (
     <main className="single-content">
-    
       <div className="box">
         <div className="main-area">
           <img
@@ -120,21 +122,21 @@ const SingleVideoPage = () => {
                 </span>
               </div>
 
-              <div 
-              className={
-                statusActivity.watchlater
-                  ? "flex center pointer-cursor text-green-00"
-                  : "flex center pointer-cursor"
-              }
-              onClick={() =>
-                handleActions(
-                  authState.token,
-                  currVideo,
-                  watchlaterApi,
-                  "watchlater",
-                  activitiesDispatch
-                )
-              }
+              <div
+                className={
+                  statusActivity.watchlater
+                    ? "flex center pointer-cursor text-green-00"
+                    : "flex center pointer-cursor"
+                }
+                onClick={() =>
+                  handleActions(
+                    authState.token,
+                    currVideo,
+                    watchlaterApi,
+                    "watchlater",
+                    activitiesDispatch
+                  )
+                }
               >
                 <RiTimeLine className="react-icons" />
                 <span
