@@ -34,7 +34,7 @@ export const ActivitiesProvider = ({ children }) => {
   const getUserActivityData = async (apiPath, dataKey) => {
     try {
       const response = await axios.get(apiPath, {
-        headers: { authorization: authState.token },
+        headers: { authorization: authState?.token },
       });
       if (response.status === 200) {
         setActivities((prevActivities) => ({
@@ -58,7 +58,7 @@ export const ActivitiesProvider = ({ children }) => {
       getUserActivityData(watchlaterApi, "watchlater");
       getUserActivityData(historyApi, "history");
     }
-  }, [authState.token]);
+  }, [authState?.token]);
 
   const [activitiesState, activitiesDispatch] = useReducer(
     activitiesReducer,

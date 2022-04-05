@@ -1,10 +1,13 @@
 import "../Video/Video.css"
-import { useActivities, useLikes } from "../../Context";
+import { useActivities, useAuth, useLikes } from "../../Context";
 import {HorizontalVideoCard, VideoCard} from "../../Components/index"
 import { likesApi } from "../../Helper/Api/Api";
+import { Navigate } from "react-router-dom";
 
 const LikedPage = () => {
   const {activitiesState} = useActivities()
+  const { authState } = useAuth();
+  if (!authState?.isAuth) return <Navigate to="/login" replace />;
 
   return ( 
     <main className="content">

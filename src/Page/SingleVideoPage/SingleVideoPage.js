@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
 import { RiMenuAddLine, RiThumbUpLine, RiTimeLine } from "react-icons/ri";
 import { SuggestionCard } from "../../Components";
 import { useActivities, useAuth, useVideo } from "../../Context";
@@ -12,6 +12,7 @@ const SingleVideoPage = () => {
   const { videoId } = useParams();
   const { videoList } = useVideo();
   const { authState } = useAuth();
+  
   const {
     activitiesState,
     activitiesDispatch,
@@ -30,7 +31,7 @@ const SingleVideoPage = () => {
     videoList.filter((video) => video._id === videoId)[0];
 
   const getRandomInt = (num) => Math.floor(Math.random() * num);
-  
+
   useEffect(() => {
     setCurrVideo(findVideoData());
     setStatusActivity((prevStatusActivity) => ({
@@ -83,6 +84,7 @@ const SingleVideoPage = () => {
     }));
   };
 
+  if (!authState?.isAuth) return <Navigate to="/login" replace />;
   return (
     <main className="single-content">
       <div className="box">
