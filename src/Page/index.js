@@ -4,12 +4,14 @@ import LoginPage from "./Login/LoginPage";
 import SignupPage from "./Signup/SignupPage";
 import SingleVideoPage from "./SingleVideoPage/SingleVideoPage";
 import VideoPage from "./Video/VideoPage";
+import WatchLaterPage from "./WatchLaterPage/WatchLaterPage";
 
 export {
   HomePage,
-  VideoPage,
   LoginPage,
-  SignupPage,
   LikedPage,
+  VideoPage,
+  SignupPage,
+  WatchLaterPage,
   SingleVideoPage,
 };
