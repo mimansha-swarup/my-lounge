@@ -1,21 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import "./Navbar.css";
 import { BsHeart, BsBag, BsSearch } from "react-icons/bs";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BrandImage } from "../../Assets";
 import { useAuth } from "../../Context";
+import { useIsFullScreen } from "../../Helper/Hooks/fullScreen";
 
 const Navbar = () => {
 
   const {authState,Logout} =   useAuth()
+
+  const isFullScreen = useIsFullScreen("/video/")
+ 
 
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const toggleDrawer = () =>
     setIsDrawerOpen((prevIsDrawerOpen) => (isDrawerOpen ? false : true));
   return (
-    <header className="navbar">
+    <header className={isFullScreen?" navbar full-navbar":"navbar"}>
     
         <Link to="/" className="navbar-brand">
           <img src={BrandImage} className="img-responsive" alt="navbrand" />

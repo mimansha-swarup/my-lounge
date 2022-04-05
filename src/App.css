@@ -34,13 +34,8 @@
 }
 
 
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
 
+
+a:-webkit-any-link {
+  text-decoration: none;
+}

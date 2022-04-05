@@ -13,10 +13,12 @@
   font-size: 1.5rem;
   cursor: pointer;
   box-shadow: var(--Shadow-02);
+  z-index: 1;
 }
 .card {
   padding: 0;
   gap :.1rem;
+  position: relative;
 }
 .card .avatar-sm {
   height: 1.65rem;
@@ -31,6 +33,7 @@
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
+  text-decoration: none;
 }
 
 

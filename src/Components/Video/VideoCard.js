@@ -2,12 +2,13 @@ import { useState } from "react";
 import { AiFillHeart, AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { useActivities, useAuth, useLikes } from "../../Context";
 import { likesApi } from "../../Helper/Api/Api";
+import { Link } from "react-router-dom";
+import { isPresent } from "../../Helper";
 
 const VideoCard = ({ videoData }) => {
-  const { title, thumbnail, creator, creatorImage } = videoData;
+  const { _id, title, thumbnail, creator, creatorImage } = videoData;
 
-  const isPresent = (list, videos) =>
-    list.filter((video) => video._id === videos._id).length > 0;
+  
 
   const { authState } = useAuth();
   const {
@@ -49,53 +50,55 @@ const VideoCard = ({ videoData }) => {
 
   return (
     <div className="card">
+      {isLiked ? (
+        <AiFillHeart
+          onClick={() =>
+            handleAddToLikedList(
+              authState.token,
+              videoData,
+              likesApi,
+              "likes",
+              activitiesDispatch
+            )
+          }
+          className="card-dismiss"
+        />
+      ) : (
+        <AiOutlineHeart
+          onClick={() =>
+            handleAddToLikedList(
+              authState.token,
+              videoData,
+              likesApi,
+              "likes",
+              activitiesDispatch
+            )
+          }
+          className="card-dismiss"
+        />
+      )}
+      <Link className="underline-none" to={`/video/${_id}`}>
       <div className="media-cont">
         <img className="card-media" src={thumbnail} alt={title} />
-        {isLiked ? (
-          <AiFillHeart
-            onClick={() =>
-              handleAddToLikedList(
-                authState.token,
-                videoData,
-                likesApi,
-                "likes",
-                activitiesDispatch
-              )
-            }
-            className="card-dismiss"
-          />
-        ) : (
-          <AiOutlineHeart
-            onClick={() =>
-              handleAddToLikedList(
-                authState.token,
-                videoData,
-                likesApi,
-                "likes",
-                activitiesDispatch
-              )
-            }
-            className="card-dismiss"
-          />
-        )}
       </div>
-      <div className="card-body">
-        <div className="card-header">
-          <div className=" mt-1 flex gap-1 align-center">
-            <img
-              className="avatar-sm alignself-center  avatar-bg avatar-round"
-              src={creatorImage}
-              alt={creator}
-            />
-            <div>
-              <p className="card-title subtitle1 semi-bold">{title}</p>
-              <span className="card-subtitle alignself-center subtitle2">
-                by {creator}
-              </span>
+        <div className="card-body">
+          <div className="card-header">
+            <div className=" mt-1 flex gap-1 align-center">
+              <img
+                className="avatar-sm alignself-center  avatar-bg avatar-round"
+                src={creatorImage}
+                alt={creator}
+              />
+              <div>
+                <p className="card-title subtitle1 semi-bold">{title}</p>
+                <span className="card-subtitle alignself-center subtitle2">
+                  by {creator}
+                </span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 };
