@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../Context";
 
-import { HomePage, LikedPage, LoginPage, SignupPage, VideoPage } from "../Page";
+import { HomePage, LikedPage, LoginPage, SignupPage, SingleVideoPage, VideoPage } from "../Page";
 
 const AllRoutes = () => {
   const {authState}= useAuth()
@@ -10,6 +10,7 @@ const AllRoutes = () => {
       <Route path="/" element={<HomePage />} />
       <Route path="/video" element={<VideoPage />} />
       <Route path="/liked-video" element={<LikedPage />} />
+      <Route path="/video/:videoId" element={<SingleVideoPage />} />
       
       {
         authState?.isAuth ?(
