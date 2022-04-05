@@ -1,0 +1,36 @@
+.card.card-horz .media-cont {
+  width: 10.5rem;
+  flex-shrink: 0;
+}
+.card.card-horz .card-body {
+  padding: .5rem 0 0 0;
+}
+.card.card-horz .card-title {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  font-size: .85rem;
+}
+.card.card-horz .card-subtitle {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  font-size: .75rem;
+}
+/* Horizontal Video Card */
+
+.card.card-horz.horz-video{
+  width: 95%;
+  padding: 0 2rem 0 .75rem;
+}
+.card.card-horz.horz-video .card-body{
+  align-self: start;
+}
+.card.card-horz.horz-video a{
+  color: var(--color-black-01);
+}
+.card.card-horz.horz-video .card-dismiss{
+  color: var(--color-black-02);
+}
