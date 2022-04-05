@@ -54,4 +54,8 @@
   .main-area{
     flex-basis: 100%;
   }
+  .suggestion-area {
+    flex-basis: 95%;
+    margin: auto;
+  }
 }
