@@ -36,12 +36,12 @@ const SingleVideoPage = () => {
       ...prevStatusActivity,
       likes: isPresent(activitiesState.likes, findVideoData()),
       watchlater: isPresent(activitiesState.watchlater, findVideoData()),
-      history: isPresent(activitiesState.history, findVideoData()),
+    
     }));
 
     setRamdomArray(randomArray.map((num) => getRandomInt(videoList.length)));
 
-    handleActions(
+    postUserActivityData(
       authState.token,
       findVideoData(),
       historyApi,

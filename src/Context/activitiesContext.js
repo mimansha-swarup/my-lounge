@@ -7,7 +7,12 @@ import {
 } from "react";
 import { useToast } from "./toastContext";
 import axios from "axios";
-import { concatedApi, likesApi } from "../Helper/Api/Api";
+import {
+  concatedApi,
+  historyApi,
+  likesApi,
+  watchlaterApi,
+} from "../Helper/Api/Api";
 import { useAuth } from "./authContext";
 import { activitiesReducer } from "../Reducer/activities-reducer";
 import { activitiesActions } from "../Reducer/constant";
@@ -48,11 +53,10 @@ export const ActivitiesProvider = ({ children }) => {
   };
 
   useEffect(() => {
-
     if (authState?.token) {
-
       getUserActivityData(likesApi, "likes");
-
+      getUserActivityData(watchlaterApi, "watchlater");
+      getUserActivityData(historyApi, "history");
     }
   }, [authState.token]);
 
@@ -69,7 +73,6 @@ export const ActivitiesProvider = ({ children }) => {
     dataKey,
     activitiesDispatch
   ) => {
-
     try {
       const response = await axios.post(
         apiPath,
@@ -77,12 +80,18 @@ export const ActivitiesProvider = ({ children }) => {
         { headers: { authorization: token } }
       );
 
-
       if (response.status === 201) {
         activitiesDispatch({
           type: activitiesActions[dataKey.toUpperCase()],
           payload: response.data[dataKey],
         });
+        setToastData((prevToastData) => [
+          ...prevToastData,
+          {
+            type: "success",
+            message: `Added to ${dataKey} List`,
+          },
+        ]);
       }
     } catch (error) {
       console.log(error);
@@ -95,7 +104,7 @@ export const ActivitiesProvider = ({ children }) => {
       ]);
     }
   };
-    // function to delete data keys: like,history, watchLater
+  // function to delete data keys: like,history, watchLater
   const deleteUserActivityData = async (
     token,
     video,
@@ -110,13 +119,18 @@ export const ActivitiesProvider = ({ children }) => {
         { headers: { authorization: token } }
       );
 
-      console.log(response);
-
       if (response.status === 200) {
         activitiesDispatch({
           type: activitiesActions[dataKey.toUpperCase()],
           payload: response.data[dataKey],
         });
+        setToastData((prevToastData) => [
+          ...prevToastData,
+          {
+            type: "warning",
+            message: `Removed From ${dataKey} List`,
+          },
+        ]);
       }
     } catch (error) {
       console.log(error.message);

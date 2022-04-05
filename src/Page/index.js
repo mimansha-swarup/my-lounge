@@ -1,3 +1,4 @@
+import HistoryPage from "./History/HistoryPage";
 import HomePage from "./Home/HomePage";
 import LikedPage from "./Liked/LikedPage";
 import LoginPage from "./Login/LoginPage";
@@ -14,4 +15,5 @@ export {
   SignupPage,
   WatchLaterPage,
   SingleVideoPage,
+  HistoryPage
 };
