@@ -2,27 +2,87 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { RiMenuAddLine, RiThumbUpLine, RiTimeLine } from "react-icons/ri";
 import { SuggestionCard } from "../../Components";
-import { useVideo } from "../../Context";
+import { useActivities, useAuth, useVideo } from "../../Context";
 import "./SingleVideoPage.css";
+import { isPresent } from "../../Helper";
+import { historyApi, likesApi, watchlaterApi } from "../../Helper/Api/Api";
 
 const SingleVideoPage = () => {
+  const [currVideo, setCurrVideo] = useState({});
   const { videoId } = useParams();
   const { videoList } = useVideo();
-  const [currVideo, setCurrVideo] = useState({});
+  const { authState } = useAuth();
+  const {
+    activitiesState,
+    activitiesDispatch,
+    postUserActivityData,
+    deleteUserActivityData,
+  } = useActivities();
 
-  useEffect(() => {
-    setCurrVideo(videoList.filter((video) => video._id === videoId)[0]);
-  }, [videoId]);
+  const [statusActivity, setStatusActivity] = useState({
+    likes: false,
+    watchlater: false,
+    history: false,
+  });
+  const [randomArray, setRamdomArray] = useState([...Array(7)]);
+
+  const findVideoData = () =>
+    videoList.filter((video) => video._id === videoId)[0];
+
   const getRandomInt = (num) => Math.floor(Math.random() * num);
-  const randomArray = [...Array(7)].map((num) =>
-    getRandomInt(videoList.length)
-  );
+  useEffect(() => {
+    setCurrVideo(findVideoData());
+    setStatusActivity((prevStatusActivity) => ({
+      ...prevStatusActivity,
+      likes: isPresent(activitiesState.likes, findVideoData()),
+      watchlater: isPresent(activitiesState.watchlater, findVideoData()),
+      history: isPresent(activitiesState.history, findVideoData()),
+    }));
 
-  console.log(randomArray);
+    setRamdomArray(randomArray.map((num) => getRandomInt(videoList.length)));
+
+    handleActions(
+      authState.token,
+      findVideoData(),
+      historyApi,
+      "history",
+      activitiesDispatch
+    )
+  }, [videoId]);
+
+  const handleActions = (
+    token,
+    singleVideo,
+    apiPath,
+    dataKey,
+    activitiesDispatch
+  ) => {
+    if (statusActivity[dataKey])
+      deleteUserActivityData(
+        token,
+        singleVideo,
+        apiPath,
+        dataKey,
+        activitiesDispatch
+      );
+    else
+      postUserActivityData(
+        token,
+        singleVideo,
+        apiPath,
+        dataKey,
+        activitiesDispatch
+      );
+
+    setStatusActivity((prevStatusActivity) => ({
+      ...prevStatusActivity,
+      [dataKey]: !prevStatusActivity[dataKey],
+    }));
+  };
 
   return (
     <main className="single-content">
-      {console.log("currVideo", currVideo)}
+    
       <div className="box">
         <div className="main-area">
           <img
@@ -35,19 +95,64 @@ const SingleVideoPage = () => {
 
           <div className="flex mb-1">
             <div className="actions flex gap-1">
-              <div className="flex center pointer-cursor">
+              <div
+                className={
+                  statusActivity.likes
+                    ? "flex center pointer-cursor text-green-00"
+                    : "flex center pointer-cursor"
+                }
+                onClick={() =>
+                  handleActions(
+                    authState.token,
+                    currVideo,
+                    likesApi,
+                    "likes",
+                    activitiesDispatch
+                  )
+                }
+              >
                 <RiThumbUpLine className="react-icons" />
-                <span className="subtitle2 semibold">Like</span>
+                <span
+                  style={{ color: "inherit" }}
+                  className="subtitle2 semibold mb-0"
+                >
+                  Like
+                </span>
               </div>
 
-              <div className="flex center pointer-cursor">
+              <div 
+              className={
+                statusActivity.watchlater
+                  ? "flex center pointer-cursor text-green-00"
+                  : "flex center pointer-cursor"
+              }
+              onClick={() =>
+                handleActions(
+                  authState.token,
+                  currVideo,
+                  watchlaterApi,
+                  "watchlater",
+                  activitiesDispatch
+                )
+              }
+              >
                 <RiTimeLine className="react-icons" />
-                <span className="subtitle2 semibold">Watch Later</span>
+                <span
+                  style={{ color: "inherit" }}
+                  className="subtitle2 semibold mb-0"
+                >
+                  Watch Later
+                </span>
               </div>
 
               <div className="flex center pointer-cursor">
                 <RiMenuAddLine className="react-icons" />
-                <span className="subtitle2 semibold">Playlist</span>
+                <span
+                  style={{ color: "inherit" }}
+                  className="subtitle2 semibold mb-0"
+                >
+                  Playlist
+                </span>
               </div>
             </div>
           </div>
