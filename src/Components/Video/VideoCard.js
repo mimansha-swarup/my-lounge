@@ -3,12 +3,12 @@ import { AiFillHeart, AiOutlineHeart, AiFillStar } from "react-icons/ai";
 import { useActivities, useAuth, useLikes } from "../../Context";
 import { likesApi } from "../../Helper/Api/Api";
 import { Link } from "react-router-dom";
+import { isPresent } from "../../Helper";
 
 const VideoCard = ({ videoData }) => {
   const { _id, title, thumbnail, creator, creatorImage } = videoData;
 
-  const isPresent = (list, videos) =>
-    list.filter((video) => video._id === videos._id).length > 0;
+  
 
   const { authState } = useAuth();
   const {

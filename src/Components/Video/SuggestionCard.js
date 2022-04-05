@@ -1,6 +1,6 @@
 import "./SuggestionCard.css"
 import { Link } from "react-router-dom";
-const SuggestionCard = ({ videoData }) => {
+const SuggestionCard = ({ videoData={} }) => {
   const { _id,title, thumbnail, creator } = videoData;
   return (
     <Link className="underline-none" to={`/video/${_id}`} >
