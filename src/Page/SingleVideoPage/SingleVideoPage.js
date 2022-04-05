@@ -4,7 +4,7 @@ import { RiMenuAddLine, RiThumbUpLine, RiTimeLine } from "react-icons/ri";
 import { SuggestionCard } from "../../Components";
 import { useActivities, useAuth, useVideo } from "../../Context";
 import "./SingleVideoPage.css";
-import { isPresent } from "../../Helper";
+import { isPresent, randomUniqueNum } from "../../Helper";
 import { historyApi, likesApi, watchlaterApi } from "../../Helper/Api/Api";
 
 const SingleVideoPage = () => {
@@ -25,12 +25,12 @@ const SingleVideoPage = () => {
     watchlater: false,
     history: false,
   });
-  const [randomArray, setRamdomArray] = useState([...Array(7)]);
+  const [randomArray, setRandomArray] = useState([...Array(7)]);
 
   const findVideoData = () =>
     videoList.filter((video) => video._id === videoId)[0];
 
-  const getRandomInt = (num) => Math.floor(Math.random() * num);
+
 
   useEffect(() => {
     setCurrVideo(findVideoData());
@@ -40,7 +40,7 @@ const SingleVideoPage = () => {
       watchlater: isPresent(activitiesState.watchlater, findVideoData()),
     }));
 
-    setRamdomArray(randomArray.map((num) => getRandomInt(videoList.length)));
+    setRandomArray(randomUniqueNum(videoList.length,7));
 
     //  History
     if (!isPresent(activitiesState.history, findVideoData())) {
@@ -183,7 +183,7 @@ const SingleVideoPage = () => {
 
         <div className="suggestion-area">
           {randomArray.map((randIndex, i) => (
-            <SuggestionCard key={i} videoData={videoList[randIndex]} />
+            <SuggestionCard key={i} videoData={videoList[randIndex-1]} />
           ))}
         </div>
       </div>
