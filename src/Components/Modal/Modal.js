@@ -1,19 +1,25 @@
 import { AiOutlineClose } from "react-icons/ai";
-const Modal = ({ open, onClose, children }) => {
-  console.log("hello");
+
+const Modal = ({ open, onClose, headline, children }) => {
   return (
-    <div
-      className="backdrop"
-      style={{ display: open ? "block" : "none" }}
-      onClick={onClose}
-    >
-      <div className="modal">
+    <>
+      <div
+        className="backdrop"
+        style={{ display: open ? "block" : "none" }}
+        onClick={onClose}
+      ></div>
+      <div className="modal" style={{ zIndex: 5 }}>
         <div className="modal-header">
-          <AiOutlineClose className="react-icons" onClick={onClose} />
+          {headline && <h5 className="headline5 mb-0">{headline}</h5>}
+
+          <AiOutlineClose
+            className="alignself-center close-icon"
+            onClick={onClose}
+          />
         </div>
         {children}
       </div>
-    </div>
+    </>
   );
 };
 
