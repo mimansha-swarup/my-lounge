@@ -40,8 +40,16 @@
   gap: 1.5rem;
 }
 
-.pointer-cursor{
+ .pointer-cursor{
   cursor: pointer;
+}
+
+.main-area  .modal{
+  width:12.5rem
+}
+.main-area  .modal  input{
+  border: none;
+  border-bottom: 2px solid var(--color-black-02);
 }
 
 @media (max-width: 778px) {

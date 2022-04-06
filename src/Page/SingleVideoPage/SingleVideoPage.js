@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Navigate, useParams } from "react-router-dom";
 import { RiMenuAddLine, RiThumbUpLine, RiTimeLine } from "react-icons/ri";
-import { SuggestionCard } from "../../Components";
+import { PlaylistModal, SuggestionCard } from "../../Components";
 import { useActivities, useAuth, useVideo } from "../../Context";
 import "./SingleVideoPage.css";
 import { isPresent, randomUniqueNum } from "../../Helper";
@@ -9,6 +9,7 @@ import { historyApi, likesApi, watchlaterApi } from "../../Helper/Api/Api";
 
 const SingleVideoPage = () => {
   const [currVideo, setCurrVideo] = useState({});
+  const [open, setOpen] = useState(false);
   const { videoId } = useParams();
   const { videoList } = useVideo();
   const { authState } = useAuth();
@@ -149,7 +150,10 @@ const SingleVideoPage = () => {
                 </span>
               </div>
 
-              <div className="flex center pointer-cursor">
+              <div 
+              className="flex center pointer-cursor"
+              onClick={()=>setOpen(true)}
+              >
                 <RiMenuAddLine className="react-icons" />
                 <span
                   style={{ color: "inherit" }}
@@ -158,6 +162,9 @@ const SingleVideoPage = () => {
                   Playlist
                 </span>
               </div>
+              {
+                open &&   <PlaylistModal open={open} onClose={()=>setOpen(false)} />
+              }
             </div>
           </div>
 
