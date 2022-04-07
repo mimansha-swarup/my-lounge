@@ -24,7 +24,7 @@ const SideBar = () => {
       <NavLink
         to="/user"
         style={({ isActive }) => (isActive ? activeStyle : null)}
-        className="sidebar-title "
+        className="sidebar-title user-label"
       >
         {" "}
         <RiUser3Line className="sidebar-icons mr-2" />{" "}
@@ -50,7 +50,6 @@ const SideBar = () => {
 
       {secondaryLabels.map((eachLabel,i) => (
         <NavLink
-        key={i}
           to={eachLabel.path}
           style={({ isActive }) => (isActive ? activeStyle : null)}
           className="sidebar-title secondary-links "
