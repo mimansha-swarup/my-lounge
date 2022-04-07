@@ -22,9 +22,7 @@ const AllRoutes = () => {
       <Route path="/playlist" element={<RequiresAuth> <PlayListPage /> </RequiresAuth>} />
       <Route path="/playlist/:playlistId" element={<RequiresAuth> <SinglePlaylistPage /> </RequiresAuth>} />
       <Route path="*" element={<Error404Page />} />
-      {
-        console.log(location.state?.from)
-      }
+     
       {
         authState?.isAuth ?(
           <>
