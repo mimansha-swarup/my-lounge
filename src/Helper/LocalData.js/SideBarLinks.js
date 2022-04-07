@@ -8,15 +8,11 @@ import {
   RiUser3Line,
 } from "react-icons/ri";
 export const labels = [
-  {
-    label: "User",
-    icon: <RiUser3Line className="sidebar-icons mr-2" />,
-    path: "/user",
-  },
+  
   {
     label: "Home",
     icon: <RiHome2Line className="sidebar-icons mr-2" />,
-    path: "/home",
+    path: "/",
   },
   {
     label: "Videos",
