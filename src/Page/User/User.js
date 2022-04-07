@@ -15,8 +15,8 @@ const UserPage = () => {
           <FaUserCircle className="avatar-lg " />
           <p className="subtitle1">Hey, {authState?.name || "User"}</p>
           <div className="width-50 flex flex-column gap-1 mt-3">
-            {secondaryLabels.map((currLabel) => (
-              <Link to={currLabel.path} className="underline-none" >
+            {secondaryLabels.map((currLabel,i) => (
+              <Link key={i} to={currLabel.path} className="underline-none" >
                 <div className="card ">
                   <div className="flex align-center ">
                     {currLabel.icon}
