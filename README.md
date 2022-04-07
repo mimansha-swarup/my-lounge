@@ -21,8 +21,11 @@ A Video Library for Musics
 - - Sign-up
 - - Login
 - - Logout
-- Alerts and Loaders
 - [404 Page](#404-page)
+- [User Page](#user-page)
+- Alerts and Loaders
+- Search and Sort
+
 
 
 ## Home Page
@@ -54,5 +57,6 @@ https://user-images.githubusercontent.com/69811810/162177987-08bea22c-361d-4340-
 ## 404 Page
 ![image](https://user-images.githubusercontent.com/69811810/162184570-d4866b60-3192-4c48-8393-be731b97324b.png)
 
-
+## User Page
+![image](https://user-images.githubusercontent.com/69811810/162219773-fcd5bf7c-a0f3-48c5-a160-04ebcd30286f.png)
 

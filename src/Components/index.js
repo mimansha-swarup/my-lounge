@@ -12,11 +12,13 @@ import CreateNewPlaylist from "./PlaylistModal/CreateNewPlaylist";
 import PlaylistCard from "./Playlist/PlaylistCard";
 import HorizontalPlaylistCard from "./Playlist/HorizontalPlayListCard";
 import NoDataExist from "./noData/noDataExist";
+import Loader from "./Loader/Loader";
 
 export {
   Hero,
   Modal,
   Navbar,
+  Loader,
   SideBar,
   VideoCard,
   NoDataExist,

@@ -2,19 +2,20 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../Context";
 
-import { HistoryPage, HomePage, LikedPage, LoginPage, PlayListPage, SignupPage, SingleVideoPage, VideoPage, WatchLaterPage,SinglePlaylistPage, Error404Page } from "../Page";
+import { HistoryPage, HomePage, LikedPage, LoginPage, PlayListPage, SignupPage, SingleVideoPage, VideoPage, WatchLaterPage,SinglePlaylistPage, Error404Page, UserPage } from "../Page";
 
 import { RequiresAuth } from "./RequiresAuth";
 
 const AllRoutes = () => {
   const {authState}= useAuth()
   const location = useLocation()
-  console.log(location)
+
   return (
     <Routes>
       
       <Route path="/" element={<HomePage />} />
       <Route path="/video" element={<RequiresAuth><VideoPage /></RequiresAuth>} />
+      <Route path="/user" element={<UserPage />} />
       <Route path="/liked-video" element={<RequiresAuth><LikedPage /></RequiresAuth>} />
       <Route path="/video/:videoId" element={<RequiresAuth> <SingleVideoPage /> </RequiresAuth>} />
       <Route path="/watch-later" element={<RequiresAuth> <WatchLaterPage /> </RequiresAuth>} />

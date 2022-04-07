@@ -1,0 +1,14 @@
+.user-cont{
+  width: 95%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+.user-cont  .sidebar-icons {
+  vertical-align: middle;
+  font-size: 1.5rem;
+  font-weight: 700;
+  align-self: center;
+  margin: auto 1rem;
+}
+.user-cont  .card {
+padding: .5rem 0 .5rem 0;}

@@ -18,11 +18,10 @@
   padding: 10px 5px;
   display: block;
   font-weight: 700;
-  align-items: center;
   text-align: start;
   width: 90%;
   text-decoration: none;
-  display: flex;
+  
 }
 .sidebar-title .label {
   margin: 0 auto;
@@ -35,6 +34,9 @@
   width: 100%;
   margin-bottom: 2rem;
 }
+.sidebar .secondary-links {
+  display: block;
+}
 
 .active-now:-webkit-any-link {
   color: var(--color-white-03);
@@ -45,6 +47,7 @@
   font-weight: 700;
 }
 
+
 @media (max-width: 930px) {
   .sidebar .logo-cont,
   .sidebar .logo-cont img {
@@ -52,16 +55,25 @@
   }
 }
 @media (max-width: 778px) {
+  
+  .user-label{
+    order:3;
+  }
   .sidebar{
     border-radius: .5rem  .5rem 0 0;
   }
   .sidebar .sidebar-title .label {
     display: none;
   }
+  .sidebar .secondary-links,
   .sidebar .sidebar-title .label,
   .sidebar .line-horz,
   .sidebar .logo-cont {
     display: none;
+  }
+  .sidebar-title{
+    display: flex;
+
   }
   .sidebar-title .sidebar-icons {
     font-size: 2rem;
