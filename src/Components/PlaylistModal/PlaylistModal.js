@@ -3,30 +3,18 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
 import { useAuth, usePlaylist } from "../../Context";
 import PlaylistDetails from "./PlaylistDetails";
+import CreateNewPlaylist from "./CreateNewPlaylist";
 
 const PlaylistModal = ({ open, onClose, video }) => {
   const [isCreate, setIsCreate] = useState(false);
   const {
-    playlistsState,
-    postPlaylistDataToServer,
-    playlistsDispatch,
-    deletePlaylistDataFromServer,
+    playlistsState
   } = usePlaylist();
-  const { authState } = useAuth();
+  
 
-  console.log(playlistsState);
 
-  const createNewPlaylistSubmitHandler = (event) => {
-    event.preventDefault();
-    const title = event.target.playlistTitle.value;
-    const description = event.target.playlistDescription.value;
-    postPlaylistDataToServer(
-      authState?.token,
-      title,
-      description,
-      playlistsDispatch
-    );
-  };
+
+
 
   return (
     <div className="plalist-modal">
@@ -60,41 +48,8 @@ const PlaylistModal = ({ open, onClose, video }) => {
           </div>
         )}
         {isCreate && (
-          <form
-            onSubmit={createNewPlaylistSubmitHandler}
-            className="flex flex-column"
-          >
-            <div className="input-group mb-1">
-              <label className="small-text" htmlFor="playlistTitle">
-                Title
-              </label>
-              <input
-                type="text"
-                name="playlistTitle"
-                id="playlistTitle"
-                required
-              />
-            </div>
-            <div className="input-group mb-1">
-              <label className="small-text" htmlFor="playlistDescription">
-                Description
-              </label>
-              <input
-                type="text"
-                name="playlistDescription"
-                id="playlistDescription"
-                required
-              />
-            </div>
-            <div className="flex">
-              <button
-                type="submit"
-                className="btn btn-text  text-on-button ml-auto "
-              >
-                Create
-              </button>
-            </div>
-          </form>
+          <CreateNewPlaylist />
+          
         )}
       </Modal>
     </div>

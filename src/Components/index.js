@@ -8,6 +8,8 @@ import SuggestionCard from "./Video/SuggestionCard";
 import HorizontalVideoCard from "./Video/HorizontalVideoCard";
 import Modal from "./Modal/Modal";
 import PlaylistModal from "./PlaylistModal/PlaylistModal";
+import CreateNewPlaylist from "./PlaylistModal/CreateNewPlaylist";
+import PlaylistCard from "./Playlist/PlaylistCard";
 
 export {
   Hero,
@@ -15,9 +17,11 @@ export {
   Navbar,
   SideBar,
   VideoCard,
+  PlaylistCard,
   CategoryCard,
   PlaylistModal,
   ToastContainer,
   SuggestionCard,
+  CreateNewPlaylist,
   HorizontalVideoCard,
 };

@@ -1,0 +1,14 @@
+.playlist-cont {
+
+  width: 95%;
+  margin: 0 auto;
+  padding: 3rem 0;
+}
+.playlist-cont .card-dismiss {
+
+  color: var(--color-black-01);
+}
+
+.padding-2{
+  padding: 2rem;
+}

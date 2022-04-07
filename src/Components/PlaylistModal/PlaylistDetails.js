@@ -6,7 +6,6 @@ import { useState } from "react";
 
 const PlaylistDetails = ({ playlist, video }) => {
   const {
-    
     postVideoDataToPlaylistServer,
     playlistsDispatch,
     deletePlaylistDataFromServer,
@@ -17,26 +16,25 @@ const PlaylistDetails = ({ playlist, video }) => {
   const [isChecked, setIsChecked] = useState(isPresent(playlist.videos, video));
 
   const handleAddVideoToPlaylist = () => {
-    if (isChecked=== true)
-    deleteVideoDataFromPlaylistServer(
-      authState?.token,
-      concatedApi(playlistApi, playlist._id, video._id),
-      playlistsDispatch
+    if (isChecked === true)
+      deleteVideoDataFromPlaylistServer(
+        authState?.token,
+        concatedApi(playlistApi, playlist._id, video._id),
+        playlistsDispatch
       );
-      // console.log("true clicked")
+    // console.log("true clicked")
     else if (isChecked === false)
-    postVideoDataToPlaylistServer(
+      postVideoDataToPlaylistServer(
         authState?.token,
         concatedApi(playlistApi, playlist._id),
         video,
         playlistsDispatch
       );
-      console.log("false clicked")
-    setIsChecked(prevIsChecked=> !prevIsChecked)
+    console.log("false clicked");
+    setIsChecked((prevIsChecked) => !prevIsChecked);
   };
   return (
     <div className="flex">
-
       <input
         type="checkbox"
         className="mr-1"
@@ -49,16 +47,16 @@ const PlaylistDetails = ({ playlist, video }) => {
         {playlist.title}
       </label>
       <AiFillDelete
-        className=" ml-auto"
+        className=" ml-auto pointer"
         onClick={() =>
           deletePlaylistDataFromServer(
             authState?.token,
             concatedApi(playlistApi, playlist._id),
             playlistsDispatch
-            )
+          )
         }
       />
-            </div>
+    </div>
   );
 };
 
