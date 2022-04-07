@@ -11,11 +11,6 @@ const PlaylistModal = ({ open, onClose, video }) => {
     playlistsState
   } = usePlaylist();
   
-
-
-
-
-
   return (
     <div className="plalist-modal">
       <Modal
