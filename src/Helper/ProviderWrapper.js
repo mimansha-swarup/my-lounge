@@ -3,15 +3,18 @@ import {
   ActivitiesProvider,
   ToastProvider,
   VideoProvider,
+  PlayListProvider,
 } from "../Context";
 
 const ProvideWrapper = ({ children }) => {
   return (
     <ToastProvider>
       <AuthProvider>
-        <ActivitiesProvider>
-          <VideoProvider>{children}</VideoProvider>
-        </ActivitiesProvider>
+        <PlayListProvider>
+          <ActivitiesProvider>
+            <VideoProvider>{children}</VideoProvider>
+          </ActivitiesProvider>
+        </PlayListProvider>
       </AuthProvider>
     </ToastProvider>
   );

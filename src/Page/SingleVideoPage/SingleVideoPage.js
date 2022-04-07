@@ -163,7 +163,7 @@ const SingleVideoPage = () => {
                 </span>
               </div>
               {
-                open &&   <PlaylistModal open={open} onClose={()=>setOpen(false)} />
+                open &&   <PlaylistModal open={open} video={currVideo} onClose={()=>setOpen(false)} />
               }
             </div>
           </div>

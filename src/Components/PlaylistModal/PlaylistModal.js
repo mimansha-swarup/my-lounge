@@ -1,9 +1,33 @@
 import Modal from "../Modal/Modal";
 import { AiOutlinePlus } from "react-icons/ai";
 import { useState } from "react";
+import { useAuth, usePlaylist } from "../../Context";
+import PlaylistDetails from "./PlaylistDetails";
 
-const PlaylistModal = ({ open, onClose }) => {
+const PlaylistModal = ({ open, onClose, video }) => {
   const [isCreate, setIsCreate] = useState(false);
+  const {
+    playlistsState,
+    postPlaylistDataToServer,
+    playlistsDispatch,
+    deletePlaylistDataFromServer,
+  } = usePlaylist();
+  const { authState } = useAuth();
+
+  console.log(playlistsState);
+
+  const createNewPlaylistSubmitHandler = (event) => {
+    event.preventDefault();
+    const title = event.target.playlistTitle.value;
+    const description = event.target.playlistDescription.value;
+    postPlaylistDataToServer(
+      authState?.token,
+      title,
+      description,
+      playlistsDispatch
+    );
+  };
+
   return (
     <div className="plalist-modal">
       <Modal
@@ -13,16 +37,21 @@ const PlaylistModal = ({ open, onClose }) => {
         headline="Save To..."
       >
         <hr className="line-horz width-100" />
-        <div className="flex">
-          <input
-            type="checkbox"
-            className="mr-1"
-            name="watch later"
-            id="Watch later"
-          />
-          <label htmlFor="Watch later">Watch later</label>
+
+        {/* Render All Playlist */}
+        <div className="flex flex-column gap-1">
+          {playlistsState?.playlists.length > 0 ? (
+            playlistsState.playlists.map((playlist) => (
+              <PlaylistDetails key={playlist._id} playlist={playlist} video={video} />
+            ))
+          ) : (
+            <p className="subtitle1 mt-1 mb-1">No Playlists created Yet</p>
+          )}
         </div>
         <hr className="line-horz" />
+
+        {/* Create new Playlist */}
+
         {!isCreate && (
           <div className="flex" onClick={() => setIsCreate(true)}>
             {" "}
@@ -31,22 +60,37 @@ const PlaylistModal = ({ open, onClose }) => {
           </div>
         )}
         {isCreate && (
-          <form className="flex flex-column">
+          <form
+            onSubmit={createNewPlaylistSubmitHandler}
+            className="flex flex-column"
+          >
             <div className="input-group mb-1">
-              <label className="small-text" htmlFor="playlistTitle">Title</label>
-              <input type="text" name="playlistTitle" id="playlistTitle" />
+              <label className="small-text" htmlFor="playlistTitle">
+                Title
+              </label>
+              <input
+                type="text"
+                name="playlistTitle"
+                id="playlistTitle"
+                required
+              />
             </div>
             <div className="input-group mb-1">
-              <label className="small-text" htmlFor="playlistDescription">Description</label>
+              <label className="small-text" htmlFor="playlistDescription">
+                Description
+              </label>
               <input
                 type="text"
                 name="playlistDescription"
                 id="playlistDescription"
-
+                required
               />
             </div>
             <div className="flex">
-              <button className="btn btn-text  text-on-button ml-auto ">
+              <button
+                type="submit"
+                className="btn btn-text  text-on-button ml-auto "
+              >
                 Create
               </button>
             </div>

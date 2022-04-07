@@ -2,6 +2,7 @@ import { AuthProvider, useAuth } from "./authContext";
 import { ActivitiesProvider, useActivities } from "./activitiesContext";
 import { ToastProvider, useToast } from "./toastContext";
 import { useVideo, VideoProvider } from "./videosContext";
+import { PlayListProvider, usePlaylist } from "./playlistContext";
 
 export {
   useToast,
@@ -12,4 +13,6 @@ export {
   ActivitiesProvider,
   useVideo,
   VideoProvider,
+  usePlaylist,
+  PlayListProvider,
 };
