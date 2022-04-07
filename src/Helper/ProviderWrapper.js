@@ -4,6 +4,7 @@ import {
   ToastProvider,
   VideoProvider,
   PlayListProvider,
+  CategoriesProvider,
 } from "../Context";
 
 const ProvideWrapper = ({ children }) => {
@@ -12,7 +13,9 @@ const ProvideWrapper = ({ children }) => {
       <AuthProvider>
         <PlayListProvider>
           <ActivitiesProvider>
+            <CategoriesProvider>
             <VideoProvider>{children}</VideoProvider>
+            </CategoriesProvider>
           </ActivitiesProvider>
         </PlayListProvider>
       </AuthProvider>

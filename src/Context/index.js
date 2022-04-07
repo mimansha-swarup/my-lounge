@@ -3,6 +3,7 @@ import { ActivitiesProvider, useActivities } from "./activitiesContext";
 import { ToastProvider, useToast } from "./toastContext";
 import { useVideo, VideoProvider } from "./videosContext";
 import { PlayListProvider, usePlaylist } from "./playlistContext";
+import { CategoriesProvider, useCategories } from "./categoryContext";
 
 export {
   useToast,
@@ -15,4 +16,6 @@ export {
   VideoProvider,
   usePlaylist,
   PlayListProvider,
+  useCategories,
+  CategoriesProvider,
 };

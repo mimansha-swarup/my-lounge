@@ -9,7 +9,7 @@ import { RequiresAuth } from "./RequiresAuth";
 const AllRoutes = () => {
   const {authState}= useAuth()
   const location = useLocation()
-  console.log(location)
+
   return (
     <Routes>
       
