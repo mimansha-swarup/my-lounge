@@ -1,8 +1,9 @@
+import moment from "moment"
 export const sortLatest = (listData, sortType) =>
   sortType === "NEW_FIRST"
-    ? [...listData].sort((a, b) => b.uploadDate - a.uploadDate)
+    ? [...listData].sort((a, b) => moment(b.uploadedAt).unix() - moment(a.uploadedAt).unix())
     : sortType === "OLD_FIRST"
-    ? [...listData].sort((a, b) => a.uploadDate - b.uploadDate)
+    ? [...listData].sort((a, b) => moment(a.uploadedAt).unix() - moment(b.uploadedAt).unix())
     : listData;
 
 export const searchByName = (listData, searchQuery) =>

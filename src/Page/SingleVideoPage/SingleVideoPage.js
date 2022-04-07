@@ -6,6 +6,7 @@ import { useActivities, useAuth, useVideo } from "../../Context";
 import "./SingleVideoPage.css";
 import { isPresent, randomUniqueNum } from "../../Helper";
 import { historyApi, likesApi, watchlaterApi } from "../../Helper/Api/Api";
+import moment from "moment";
 
 const SingleVideoPage = () => {
   const [currVideo, setCurrVideo] = useState({});
@@ -98,6 +99,7 @@ const SingleVideoPage = () => {
           <h4 className="headline4 mb-0">{currVideo.title}</h4>
 
           <div className="flex mb-1">
+            <span className="small-text grey-text alignself-center">{moment(currVideo?.uploadedAt).fromNow()}</span>
             <div className="actions flex gap-1">
               <div
                 className={
