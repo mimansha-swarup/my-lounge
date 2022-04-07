@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
-import { CategoryCard, Hero } from "../../Components";
+import { CategoryCard, Hero, Loader } from "../../Components";
 import axios from "axios";
 import { categoriesApi } from "../../Helper/Api/Api";
-import { useToast,useAuth } from "../../Context";
+import { useToast, useAuth } from "../../Context";
 const HomePage = () => {
   const { setToastData } = useToast();
   const [categoriesData, setCategoriesData] = useState([]);
   const [status, setStatus] = useState({ isLoading: false });
-  const {authState} = useAuth()
+  const { authState } = useAuth();
   useEffect(() => {
     (async () => {
       try {
@@ -29,17 +29,18 @@ const HomePage = () => {
   return (
     <main className="home-cont content">
       <Hero />
-      <div className="box">
-        <div>
-          <h3 className="headline3 ">Categories</h3>
+      <div className="box flex-column">
+        <h3 className="headline3 ">Categories</h3>
+
+        {status.isLoading ? (
+          <Loader />
+        ) : (
           <div className="category-layout">
-            {status.isLoading
-              ? "Loading..."
-              : categoriesData.map((category) => (
-                  <CategoryCard key={category._id} category={category} />
-                ))}
+            {categoriesData.map((category) => (
+              <CategoryCard key={category._id} category={category} />
+            ))}
           </div>
-        </div>
+        )}
       </div>
     </main>
   );

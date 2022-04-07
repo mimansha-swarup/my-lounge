@@ -1,6 +1,5 @@
-
-import { VideoCard } from "../../Components";
-import {  useVideo } from "../../Context";
+import { Loader, VideoCard } from "../../Components";
+import { useVideo } from "../../Context";
 
 import "./Video.css";
 
@@ -16,13 +15,16 @@ const VideoPage = () => {
             ({videoList.length} results)
           </span>{" "}
         </h3>
-        <div className="grid-x4">
-          {isLoading
-            ? "Loading..."
-            : videoList.map((video) => (
-                <VideoCard key={video._id} videoData={video} />
-              ))}
+
+          {isLoading ? (
+            <Loader />
+          ) : (
+            <div className="grid-x4">{
+            videoList.map((video) => (
+              <VideoCard key={video._id} videoData={video} />
+            ))}
         </div>
+          )}
       </div>
     </main>
   );
