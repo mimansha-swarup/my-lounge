@@ -1,13 +1,9 @@
 import "../Video/Video.css";
-import { useActivities, useAuth } from "../../Context";
+import { useActivities } from "../../Context";
 import { HorizontalVideoCard, NoDataExist } from "../../Components/index";
 import { watchlaterApi } from "../../Helper/Api/Api";
-import { Navigate } from "react-router-dom";
-
 const WatchLaterPage = () => {
   const { activitiesState } = useActivities();
-  const { authState } = useAuth();
-  if (!authState?.isAuth) return <Navigate to="/login" replace />;
 
   return (
     <main className="content">

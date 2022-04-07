@@ -21,24 +21,27 @@ export const PlayListProvider = ({ children }) => {
   const { authState } = useAuth();
 
   useEffect(() => {
-    (async () => {
-      try {
-        const response = await axios.get(playlistApi, {
-          headers: { authorization: authState?.token },
+    if (authState?.token) {
+      
+      (async () => {
+        try {
+          const response = await axios.get(playlistApi, {
+            headers: { authorization: authState?.token },
         });
         if (response.status === 200) {
           setPlaylists(response.data.playlists);
         }
       } catch (error) {
         console.log("error from use effect in playlist Context", error);
-
+        
         setToastData((prevToastData) => [
           ...prevToastData,
           { type: "error", message: error.message },
         ]);
       }
     })();
-  }, []);
+  }
+  }, [authState?.token]);
   const [playlistsState, playlistsDispatch] = useReducer(playlistsReducer, {
     playlists: playlists,
   });
