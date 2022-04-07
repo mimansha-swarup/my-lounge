@@ -2,12 +2,12 @@ import { useState, useEffect } from "react";
 import { CategoryCard, Hero } from "../../Components";
 import axios from "axios";
 import { categoriesApi } from "../../Helper/Api/Api";
-import { useToast } from "../../Context";
+import { useToast,useAuth } from "../../Context";
 const HomePage = () => {
   const { setToastData } = useToast();
   const [categoriesData, setCategoriesData] = useState([]);
   const [status, setStatus] = useState({ isLoading: false });
-
+  const {authState} = useAuth()
   useEffect(() => {
     (async () => {
       try {
@@ -25,7 +25,7 @@ const HomePage = () => {
         ]);
       }
     })();
-  }, []);
+  }, [authState?.isAuth]);
   return (
     <main className="home-cont content">
       <Hero />

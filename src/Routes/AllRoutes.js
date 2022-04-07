@@ -1,30 +1,33 @@
-import mockmanEs from "mockman-js";
-import { Routes, Route, Navigate } from "react-router-dom";
+
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../Context";
 
 import { HistoryPage, HomePage, LikedPage, LoginPage, PlayListPage, SignupPage, SingleVideoPage, VideoPage, WatchLaterPage,SinglePlaylistPage, Error404Page } from "../Page";
-import Mockman from "mockman-js";
+
+import { RequiresAuth } from "./RequiresAuth";
 
 const AllRoutes = () => {
   const {authState}= useAuth()
+  const location = useLocation()
+  console.log(location)
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/video" element={<VideoPage />} />
-      <Route path="/liked-video" element={<LikedPage />} />
-      <Route path="/video/:videoId" element={<SingleVideoPage />} />
-      <Route path="/watch-later" element={<WatchLaterPage />} />
-      <Route path="/history" element={<HistoryPage />} />
-      <Route path="/mockman" element={<Mockman />} />
-      <Route path="/playlist" element={<PlayListPage />} />
-      <Route path="/playlist/:playlistId" element={<SinglePlaylistPage />} />
-      <Route path="*" element={<Error404Page />} />
       
+      <Route path="/" element={<HomePage />} />
+      <Route path="/video" element={<RequiresAuth><VideoPage /></RequiresAuth>} />
+      <Route path="/liked-video" element={<RequiresAuth><LikedPage /></RequiresAuth>} />
+      <Route path="/video/:videoId" element={<RequiresAuth> <SingleVideoPage /> </RequiresAuth>} />
+      <Route path="/watch-later" element={<RequiresAuth> <WatchLaterPage /> </RequiresAuth>} />
+      <Route path="/history" element={<RequiresAuth> <HistoryPage /> </RequiresAuth>} />
+      <Route path="/playlist" element={<RequiresAuth> <PlayListPage /> </RequiresAuth>} />
+      <Route path="/playlist/:playlistId" element={<RequiresAuth> <SinglePlaylistPage /> </RequiresAuth>} />
+      <Route path="*" element={<Error404Page />} />
+     
       {
         authState?.isAuth ?(
           <>
-        <Route path="/login" element={<Navigate to="/" replace />} />
-        <Route path="/signup" element={<Navigate to="/" replace />} />
+        <Route path="/login" element={<Navigate to={location.state?.from?.pathname || "/" } replace />} />
+        <Route path="/signup" element={<Navigate to={location.state?.from?.pathname || "/" } replace />} />
           </>
         ):(
           <>

@@ -1,18 +1,13 @@
 import "../Video/Video.css";
 import { useAuth, usePlaylist } from "../../Context";
-// import { HorizontalPlaylistCard } from "../../Components/index";
-
-import { Link, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { HorizontalPlaylistCard, NoDataExist } from "../../Components/index";
-import { noData } from "../../Assets";
+
 
 const SinglePlaylistPage = () => {
   const { playlistId } = useParams();
   
-
-  //
-
   const [currPlaylist, setCurrPlaylist] = useState({ videos: [] });
   const { playlistsState } = usePlaylist();
   const { playlists } = playlistsState;
@@ -25,7 +20,6 @@ const SinglePlaylistPage = () => {
     setCurrPlaylist(findPlayist());
   }, [playlistId,playlists]);
 
-  //
   return (
     <main className="content">
       <div className="video-cont">
@@ -34,7 +28,7 @@ const SinglePlaylistPage = () => {
           {currPlaylist.title}{" "}
           <span className="subtitle1 grey-text">
             ({currPlaylist?.videos.length} Videos)
-            {/* ({0} Videos) */}
+   
           </span>{" "}
         </h3>
     

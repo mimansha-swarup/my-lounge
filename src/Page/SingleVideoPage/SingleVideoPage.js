@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { RiMenuAddLine, RiThumbUpLine, RiTimeLine } from "react-icons/ri";
 import { PlaylistModal, SuggestionCard } from "../../Components";
 import { useActivities, useAuth, useVideo } from "../../Context";
@@ -85,7 +85,6 @@ const SingleVideoPage = () => {
     }));
   };
 
-  if (!authState?.isAuth) return <Navigate to="/login" replace />;
   return (
     <main className="single-content">
       <div className="box">
