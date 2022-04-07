@@ -4,6 +4,7 @@ import { ToastProvider, useToast } from "./toastContext";
 import { useVideo, VideoProvider } from "./videosContext";
 import { PlayListProvider, usePlaylist } from "./playlistContext";
 import { CategoriesProvider, useCategories } from "./categoryContext";
+import { FilterProvider, useFilters } from "./filterContext";
 
 export {
   useToast,
@@ -18,4 +19,6 @@ export {
   PlayListProvider,
   useCategories,
   CategoriesProvider,
+  useFilters,
+  FilterProvider,
 };

@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
 import { CategoryCard, Hero, Loader } from "../../Components";
-import axios from "axios";
-import { categoriesApi } from "../../Helper/Api/Api";
-import { useToast, useAuth, useCategories } from "../../Context";
+import { useCategories } from "../../Context";
+
 const HomePage = () => {
   const {categoriesData, isLoading} = useCategories();
+
 
   return (
     <main className="home-cont content">

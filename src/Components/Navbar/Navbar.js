@@ -1,23 +1,23 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { Link } from "react-router-dom";
+import { BsSearch } from "react-icons/bs";
 import "./Navbar.css";
-import { BsHeart, BsBag, BsSearch } from "react-icons/bs";
-import { AiOutlineMenu } from "react-icons/ai";
+
 import { BrandImage } from "../../Assets";
-import { useAuth } from "../../Context";
+import { useAuth, useFilters } from "../../Context";
 import { useIsFullScreen } from "../../Helper/Hooks/fullScreen";
+import { filterActions } from "../../Reducer/constant";
 
 const Navbar = () => {
 
   const {authState,Logout} =   useAuth()
+  const{filterDispatch} =useFilters()
 
   const isFullScreen = useIsFullScreen("/video/")
  
 
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
-  const toggleDrawer = () =>
-    setIsDrawerOpen((prevIsDrawerOpen) => (isDrawerOpen ? false : true));
+
+  
   return (
     <header className={isFullScreen?" navbar full-navbar":"navbar"}>
     
@@ -43,7 +43,14 @@ const Navbar = () => {
 
   
       <div className="search-box">
-        <input type="text" name="search-box" id="search" placeholder="search" />
+        <input type="text" name="search-box" id="search" placeholder="search"
+         onChange={(event) =>
+          filterDispatch({
+            type: filterActions.SET_SEARCH_QUERY,
+            payload: event.target.value,
+          })
+        }
+        />
         <BsSearch className="nav-icons" />
       </div>
       <nav className="flex ">

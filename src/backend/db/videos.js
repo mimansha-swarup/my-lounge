@@ -7,7 +7,7 @@ import { v4 as uuid } from "uuid";
 export const videos = [
   {
     _id: uuid(),
-    category:"lofi",
+    category:"Lofi",
     title: "Bollywood Lofi Mixtape Vol.1",
     thumbnail:"https://i.ytimg.com/vi/q0BVR5jRXxE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDlHNQt7HnoKLJbBsI4vkyOFx76bQ",
     description:
@@ -17,7 +17,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"lofi",
+    category:"Lofi",
     title: "Lofi Hip Hop Radio",
     creator: "Lofi Girl",
     description:
@@ -27,7 +27,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"lofi",
+    category:"Lofi",
     title: "Top Bollywood Lo-fi Mashup To Chill /Study /Relax /Vibe",
     creator: "U NEED IT",
     description:
@@ -37,7 +37,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"lofi",
+    category:"Lofi",
     title: "Alone Sad Jukebox [ Slowed + Reverd ] Mindrelax",
     creator: "Bollywood Studio",
     description:
@@ -47,7 +47,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"lofi",
+    category:"Lofi",
     title: "Hindi Lofi Sad Songs | Arijit Singh Lofi Music | Jubin Nautiyal Lofi Mix",
     creator: "Lofi Studio",
     description:
@@ -57,7 +57,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"lofi",
+    category:"Lofi",
     title: "30 mins of Hindi Lofi Songs to Study Sleep Chill Relax ",
     creator: "Alfaaz Lofi",
     description:
@@ -68,7 +68,7 @@ export const videos = [
   
   {
     _id: uuid(),
-    category:"anime",
+    category:"Anime",
     title: "anime lofi hip hop radio - 24/7 chill lofi remixes of anime",
     creator: "nostalgic",
     description:
@@ -78,7 +78,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"anime",
+    category:"Anime",
     title: "Jujutsu Kaisen ",
     creator: "Kira Senpai",
     description:
@@ -88,7 +88,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"anime",
+    category:"Anime",
     title: "Anime Song Mix Full OP & ED",
     creator: "minato",
     description:
@@ -98,7 +98,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"anime",
+    category:"Anime",
     title: "A Silent Voice - Koe No Katachi",
     creator: "Brave  Order",
     description:
@@ -108,7 +108,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"anime",
+    category:"Anime",
     title: "Popular Anime Opening",
     creator: "nostalgic",
     description:
@@ -118,7 +118,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"anime",
+    category:"Anime",
     title: "Madara Hindi Rap ",
     creator: "Dixz",
     description:
@@ -128,7 +128,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"bollywood",
+    category:"Bollywood",
     title: "Best Hindi Songs of 2008 t0 2012 Jukebox ",
     creator: "Intelli Studios",
     description:
@@ -138,7 +138,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"bollywood",
+    category:"Bollywood",
     title: "60 Years of Bollywood in 4 chords",
     creator: "Scoop Whoop",
     description:
@@ -148,7 +148,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"bollywood",
+    category:"Bollywood",
     title: "Ye Ladka Hai Allah",
     creator: "90s Melodies",
     description:
@@ -158,7 +158,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"bollywood",
+    category:"Bollywood",
     title: "Bollywood Unplugged Jukebox",
     creator: "MM Nation",
     description:
@@ -168,7 +168,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"bollywood",
+    category:"Bollywood",
     title: "Heer Raanjhana | Lyrical | Bachchhan Pandey",
     creator: "T Series",
     description:
@@ -178,7 +178,7 @@ export const videos = [
   },
   {
     _id: uuid(),
-    category:"bollywood",
+    category:"Bollywood",
     title: "MixTape Jukebox",
     creator: "Music Lover",
     description:
