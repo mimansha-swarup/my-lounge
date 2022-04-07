@@ -8,6 +8,7 @@ import PlayListPage from "./Playlist/PlayListPage";
 import WatchLaterPage from "./WatchLaterPage/WatchLaterPage";
 import SingleVideoPage from "./SingleVideoPage/SingleVideoPage";
 import SinglePlaylistPage from "./SinglePlaylistPage/SinglePlaylistPage";
+import Error404Page from "./Error404Page/Error404Page";
 
 export {
   HomePage,
@@ -17,6 +18,7 @@ export {
   SignupPage,
   HistoryPage,
   PlayListPage,
+  Error404Page,
   WatchLaterPage,
   SingleVideoPage,
   SinglePlaylistPage,
