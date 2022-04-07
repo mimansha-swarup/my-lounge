@@ -85,13 +85,14 @@ export const ActivitiesProvider = ({ children }) => {
           type: activitiesActions[dataKey.toUpperCase()],
           payload: response.data[dataKey],
         });
-        setToastData((prevToastData) => [
-          ...prevToastData,
-          {
-            type: "success",
-            message: `Added to ${dataKey} List`,
-          },
-        ]);
+        if (dataKey !== "history")
+          setToastData((prevToastData) => [
+            ...prevToastData,
+            {
+              type: "success",
+              message: `Added to ${dataKey} List`,
+            },
+          ]);
       }
     } catch (error) {
       console.log(error);
@@ -113,11 +114,9 @@ export const ActivitiesProvider = ({ children }) => {
     activitiesDispatch
   ) => {
     try {
-      const response = await axios.delete(
-        concatedApi(apiPath, video._id),
-
-        { headers: { authorization: token } }
-      );
+      const response = await axios.delete(concatedApi(apiPath, video._id), {
+        headers: { authorization: token },
+      });
 
       if (response.status === 200) {
         activitiesDispatch({

@@ -1,6 +1,6 @@
 import "../Video/Video.css";
 import { useActivities, useAuth } from "../../Context";
-import { HorizontalVideoCard } from "../../Components/index";
+import { HorizontalVideoCard, NoDataExist } from "../../Components/index";
 import { historyApi } from "../../Helper/Api/Api";
 import { Navigate } from "react-router-dom";
 
@@ -15,15 +15,19 @@ const HistoryPage = () => {
       <div className="video-cont">
         <h3 className="headline3">Watch History </h3>
         <div className="flex flex-column center gap-1">
-          {activitiesState.history.map((video, index) => (
-            <HorizontalVideoCard
-              key={video._id}
-              index={index + 1}
-              videoData={video}
-              dataKey={"history"}
-              api={historyApi}
-            />
-          ))}
+          {activitiesState.history.length > 0 ? (
+            activitiesState.history.map((video, index) => (
+              <HorizontalVideoCard
+                key={video._id}
+                index={index + 1}
+                videoData={video}
+                dataKey={"history"}
+                api={historyApi}
+              />
+            ))
+          ) : (
+            <NoDataExist message={"you haven't watched any videos"} />
+          )}
         </div>
       </div>
     </main>

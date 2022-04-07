@@ -1,43 +1,23 @@
 import { Link } from "react-router-dom";
 import { MdOutlineCancel } from "react-icons/md";
-import { useActivities ,useAuth} from "../../Context";
-import "./SuggestionCard.css";
+import { useActivities, useAuth, usePlaylist } from "../../Context";
+import "../Video/SuggestionCard.css";
+import { concatedApi, playlistApi } from "../../Helper/Api/Api";
 
+const HorizontalPlaylistCard = ({ video, index, playlist }) => {
+  const { _id, title, thumbnail, creator } = video;
 
-const HorizontalVideoCard = ({ videoData, index, dataKey, api }) => {
-  const { _id, title, thumbnail, creator } = videoData;
-
-  const {
-    activitiesDispatch,
-    deleteUserActivityData,
-  } = useActivities();
-  const {authState} = useAuth()
-
-  const removeFromLikedList = (
-    token,
-    singleVideo,
-    apiPath,
-    dataKey,
-    activitiesDispatch
-  ) =>
-    deleteUserActivityData(
-      token,
-      singleVideo,
-      apiPath,
-      dataKey,
-      activitiesDispatch
-    );
+  const { authState } = useAuth();
+  const { deleteVideoDataFromPlaylistServer,playlistsDispatch } = usePlaylist();
 
   return (
     <div className="card  card-horz horz-video ">
       <MdOutlineCancel
         onClick={() =>
-          removeFromLikedList(
-            authState.token,
-            videoData,
-            api,
-            dataKey,
-            activitiesDispatch
+          deleteVideoDataFromPlaylistServer(
+            authState?.token,
+            concatedApi(playlistApi, playlist._id,_id),
+            playlistsDispatch
           )
         }
         className="card-dismiss pointer"
@@ -64,4 +44,4 @@ const HorizontalVideoCard = ({ videoData, index, dataKey, api }) => {
   );
 };
 
-export default HorizontalVideoCard;
+export default HorizontalPlaylistCard;

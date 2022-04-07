@@ -16,6 +16,9 @@ code {
 .width-100{
   width: 100%;
 }
+.width-50{
+  width: 50%;
+}
 
 /* TODO: move below code to component LIb */
 .ml-0 {
@@ -29,6 +32,9 @@ code {
 }
 .ml-3 {
   margin-left: 3rem;
+}
+.ml-auto {
+  margin-left: auto;
 }
 .mt-0 {
   margin-top: 0rem;

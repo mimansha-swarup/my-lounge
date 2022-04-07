@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { CategoryCard, Hero, VideoCard } from "../../Components";
+import { CategoryCard, Hero } from "../../Components";
 import axios from "axios";
 import { categoriesApi } from "../../Helper/Api/Api";
-import {  useToast } from "../../Context";
+import { useToast } from "../../Context";
 const HomePage = () => {
   const { setToastData } = useToast();
   const [categoriesData, setCategoriesData] = useState([]);
@@ -11,12 +11,12 @@ const HomePage = () => {
   useEffect(() => {
     (async () => {
       try {
-      setStatus({ isLoading: true, error: "" });
-      const response = await axios.get(categoriesApi);
-      if (response.status === 200) {
-        setCategoriesData(response.data.categories);
-        setStatus({ isLoading: false });
-      }
+        setStatus({ isLoading: true, error: "" });
+        const response = await axios.get(categoriesApi);
+        if (response.status === 200) {
+          setCategoriesData(response.data.categories);
+          setStatus({ isLoading: false });
+        }
       } catch (error) {
         setStatus({ isLoading: false });
         setToastData((prevToastData) => [

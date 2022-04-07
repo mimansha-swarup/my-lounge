@@ -8,3 +8,7 @@ export const activitiesActions = {
   HISTORY: "SET_HISTORY",
   WATCHLATER: "SET_WATCHLATER",
 };
+export const playlistActions = {
+  SET_PLAYLISTS:"SET_PLAYLISTS",
+  UPDATE_PLAYLIST:"UPDATE_PLAYLIST",
+}
