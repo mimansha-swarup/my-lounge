@@ -18,11 +18,10 @@
   padding: 10px 5px;
   display: block;
   font-weight: 700;
-  align-items: center;
   text-align: start;
   width: 90%;
   text-decoration: none;
-  display: flex;
+  
 }
 .sidebar-title .label {
   margin: 0 auto;

@@ -25,33 +25,33 @@ const SideBar = () => {
       <hr className="line-horz" />
       <NavLink  to="/"  style={({isActive}) =>isActive? activeStyle:null }  className="sidebar-title ">
         {" "}
-        <RiHome2Line className="sidebar-icons" />{" "}
+        <RiHome2Line className="sidebar-icons mr-2" />{" "}
         <span className="label subtitle1 semibold">Home</span>{" "}
       </NavLink>
       <NavLink to="/video"  style={({isActive}) =>isActive? activeStyle:null }  className="sidebar-title ">
         {" "}
-        <RiVideoLine className="sidebar-icons" />{" "}
+        <RiVideoLine className="sidebar-icons mr-2" />{" "}
         <span className="label subtitle1 semibold">Videos</span>{" "}
       </NavLink>
       <NavLink to="/liked-video" style={({isActive}) =>isActive? activeStyle:null }   className="sidebar-title ">
         {" "}
-        <RiThumbUpLine className="sidebar-icons" />{" "}
+        <RiThumbUpLine className="sidebar-icons mr-2" />{" "}
         <span className="label subtitle1 semibold">Liked</span>{" "}
       </NavLink>
       <hr className="line-horz" />
       <NavLink to="/watch-later" style={({isActive}) =>isActive? activeStyle:null }   className="sidebar-title ">
         {" "}
-        <RiTimeLine className="sidebar-icons" />{" "}
+        <RiTimeLine className="sidebar-icons mr-2" />{" "}
         <span className="label subtitle1 semibold">Watch Later</span>{" "}
       </NavLink>
       <NavLink to="/playlist"  style={({isActive}) =>isActive? activeStyle:null }  className="sidebar-title ">
         {" "}
-        <RiMenuUnfoldFill className="sidebar-icons" />{" "}
+        <RiMenuUnfoldFill className="sidebar-icons mr-2 " />{" "}
         <span className="label subtitle1 semibold">Playlist</span>{" "}
       </NavLink>
       <NavLink to="/history"  style={({isActive}) =>isActive? activeStyle:null }  className="sidebar-title ">
         {" "}
-        <RiHistoryLine className="sidebar-icons" />{" "}
+        <RiHistoryLine className="sidebar-icons mr-2" />{" "}
         <span className="label subtitle1 semibold">History</span>{" "}
       </NavLink>
     </aside>
