@@ -28,8 +28,8 @@ const UserPage = () => {
           </div>
         </div>
       ) : (
-        <div className="flex center">
-          <p className="body1">Kindly Login</p>
+        <div className="flex flex-column center">
+          <h4 className="headline4">Kindly Login</h4>
           <Link to="/login">
             <button className="btn btn-contained ml-2 semibold">Login</button>
           </Link>

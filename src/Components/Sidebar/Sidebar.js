@@ -50,6 +50,7 @@ const SideBar = () => {
 
       {secondaryLabels.map((eachLabel,i) => (
         <NavLink
+        key={i}
           to={eachLabel.path}
           style={({ isActive }) => (isActive ? activeStyle : null)}
           className="sidebar-title secondary-links "
