@@ -1,12 +1,13 @@
-import HistoryPage from "./History/HistoryPage";
 import HomePage from "./Home/HomePage";
-import LikedPage from "./Liked/LikedPage";
 import LoginPage from "./Login/LoginPage";
-import PlayListPage from "./Playlist/PlayListPage";
-import SignupPage from "./Signup/SignupPage";
-import SingleVideoPage from "./SingleVideoPage/SingleVideoPage";
+import LikedPage from "./Liked/LikedPage";
 import VideoPage from "./Video/VideoPage";
+import SignupPage from "./Signup/SignupPage";
+import HistoryPage from "./History/HistoryPage";
+import PlayListPage from "./Playlist/PlayListPage";
 import WatchLaterPage from "./WatchLaterPage/WatchLaterPage";
+import SingleVideoPage from "./SingleVideoPage/SingleVideoPage";
+import SinglePlaylistPage from "./SinglePlaylistPage/SinglePlaylistPage";
 
 export {
   HomePage,
@@ -18,4 +19,5 @@ export {
   PlayListPage,
   WatchLaterPage,
   SingleVideoPage,
+  SinglePlaylistPage,
 };

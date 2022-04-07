@@ -22,7 +22,6 @@ const PlaylistDetails = ({ playlist, video }) => {
         concatedApi(playlistApi, playlist._id, video._id),
         playlistsDispatch
       );
-    // console.log("true clicked")
     else if (isChecked === false)
       postVideoDataToPlaylistServer(
         authState?.token,
@@ -30,7 +29,6 @@ const PlaylistDetails = ({ playlist, video }) => {
         video,
         playlistsDispatch
       );
-    console.log("false clicked");
     setIsChecked((prevIsChecked) => !prevIsChecked);
   };
   return (

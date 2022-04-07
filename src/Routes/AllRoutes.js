@@ -2,7 +2,7 @@ import mockmanEs from "mockman-js";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { useAuth } from "../Context";
 
-import { HistoryPage, HomePage, LikedPage, LoginPage, PlayListPage, SignupPage, SingleVideoPage, VideoPage, WatchLaterPage } from "../Page";
+import { HistoryPage, HomePage, LikedPage, LoginPage, PlayListPage, SignupPage, SingleVideoPage, VideoPage, WatchLaterPage,SinglePlaylistPage } from "../Page";
 import Mockman from "mockman-js";
 
 const AllRoutes = () => {
@@ -17,6 +17,7 @@ const AllRoutes = () => {
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/mockman" element={<Mockman />} />
       <Route path="/playlist" element={<PlayListPage />} />
+      <Route path="/playlist/:playlistId" element={<SinglePlaylistPage />} />
       
       {
         authState?.isAuth ?(

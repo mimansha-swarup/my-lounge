@@ -22,7 +22,7 @@ const PlaylistCard = ({ playlist }) => {
           )
         }
       />
-      <Link to={`playlist/${playlist._id}`} className="underline-none">
+      <Link to={`/playlist/${playlist._id}`} className="underline-none">
         <div className="media-cont">
           <img
             className="card-media"

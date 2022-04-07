@@ -125,7 +125,7 @@ export const PlayListProvider = ({ children }) => {
         }
       );
 
-      console.log(response.data);
+    
       if (response.status === 201) {
         playlistsDispatch({
           type: playlistActions.UPDATE_PLAYLIST,

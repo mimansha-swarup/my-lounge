@@ -5,9 +5,6 @@ import { CreateNewPlaylist, PlaylistCard } from "../../Components";
 
 const PlayListPage = () => {
   const { playlistsState } = usePlaylist();
-  console.log(playlistsState);
-
- 
 
   return (
     <main className="content">
@@ -27,9 +24,8 @@ const PlayListPage = () => {
         ) : (
           <div className="flex flex-column mt-3 center mx-auto ">
             <div className="card padding-2">
-
-            <h4 className="headline4 mt-1">Create New Playlist</h4>
-            <CreateNewPlaylist />
+              <h4 className="headline4 mt-1">Create New Playlist</h4>
+              <CreateNewPlaylist />
             </div>
           </div>
         )}
